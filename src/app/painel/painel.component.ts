@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { Frase } from '../shared/frase.model'
-import { FRASES } from './frases-mock'
+import { Frase } from '../shared/frase.model';
+import { FRASES } from './frases-mock';
 
 @Component({
   selector: 'app-painel',
@@ -37,13 +37,14 @@ export class PainelComponent implements OnInit {
     if (this.rodadaFrase.frasePtBr == this.resposta) {
       this.rodada++;
       this.progresso = this.progresso + (100 / this.frases.length);
-      if(this.rodada == 4) {
+      // tslint:disable-next-line: triple-equals
+      if (this.rodada == 4) {
         this.encerrarJogo.emit('vitoria');
       }
       this.atualizaRodada();
     } else {
       this.tentativas--;
-      if(this.tentativas === -1) {
+      if (this.tentativas === -1) {
         this.encerrarJogo.emit('derrota');
       }
     }
